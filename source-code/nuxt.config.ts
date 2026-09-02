@@ -4,7 +4,9 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
 
   app: {
-    baseURL: '/',
+    baseURL: process.env.NODE_ENV === 'production'
+      ? '/pangasinan-heritage-showcase/'
+      : '/'
   },
 
   nitro: {
