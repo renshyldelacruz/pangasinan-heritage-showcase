@@ -23,6 +23,10 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: ./source-code
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -32,6 +36,7 @@ jobs:
         with:
           node-version: 22
           cache: npm
+          cache-dependency-path: source-code/package-lock.json
 
       - name: Install dependencies
         run: npm ci
@@ -45,7 +50,7 @@ jobs:
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .output/public
+          path: source-code/.output/public
 
       - name: Deploy to GitHub Pages
         id: deployment
