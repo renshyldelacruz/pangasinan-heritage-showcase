@@ -42,7 +42,9 @@ jobs:
         run: npm ci
 
       - name: Generate static site
-        run: npm run generate
+  run: npm run generate
+  env:
+    NUXT_APP_BASE_URL: /pangasinan-heritage-showcase/
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
