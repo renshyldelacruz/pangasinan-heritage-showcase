@@ -42,15 +42,15 @@ jobs:
         run: npm ci
 
       - name: Generate static site
-  run: npm run generate
-  env:
-    NUXT_APP_BASE_URL: /pangasinan-heritage-showcase/
+        run: npm run generate
+        env:
+          NUXT_APP_BASE_URL: /pangasinan-heritage-showcase/
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: source-code/.output/public
 
